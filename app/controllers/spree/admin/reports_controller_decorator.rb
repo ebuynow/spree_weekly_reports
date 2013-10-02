@@ -34,8 +34,8 @@ Spree::Admin::ReportsController.class_eval do
 
     @shipments.each do |shipment|
       shipment.line_items.each do |item|
-        @totals[item.id] = { sku: item.variant.sku, name: item.variant.name, amount: 0 } unless @totals.has_key?(item.id)
-        @totals[item.id][:amount] += item.quantity
+        @totals[item.variant_id] = { sku: item.variant.sku, name: item.variant.name, amount: 0 } unless @totals.has_key?(item.variant_id)
+        @totals[item.variant_id][:amount] += item.quantity
       end
     end
   end

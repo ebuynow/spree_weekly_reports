@@ -1,0 +1,25 @@
+<%= search_form_for @search, :url => spree.shipped_weekly_admin_reports_path  do |s| %>
+  <div class="week-filter field align-center">
+    <%= label_tag nil, Spree.t(:week), class: 'inline' %>
+    <%= select_tag 'q[week]', options_for_select(1..(Date.today.end_of_year.strftime('%W').to_i + 1), params[:q][:week]), class: 'week select2', include_blank: true %>
+    <span class="range-divider">&nbsp;</span>
+    <%= text_field_tag 'q[year]', params[:q][:year], class: 'year' %>
+    <%= label_tag nil, Spree.t(:year), class: 'inline' %>
+  </div>
+
+  <div class="date-range-filter field align-center">
+    <%= label_tag nil, Spree.t(:start), :class => 'inline' %>
+    <%= s.text_field :shipped_at_gt, :class => 'datepicker datepicker-from', value: datepicker_field_value(params[:q][:shipped_at_gt]) %>
+
+    <span class="range-divider">
+      <i class="icon-arrow-right"></i>
+    </span>
+
+    <%= s.text_field :shipped_at_lt, :class => 'datepicker datepicker-to', value: datepicker_field_value(params[:q][:shipped_at_lt]) %>
+    <%= label_tag nil, Spree.t(:end), :class => 'inline' %>
+  </div>
+
+  <div class="actions filter-actions">
+    <%= button Spree.t(:search), 'icon-search'  %>
+  </div>
+<% end %>

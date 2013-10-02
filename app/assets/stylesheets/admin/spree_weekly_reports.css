@@ -1,0 +1,5 @@
+/*
+ *= require admin/spree_backend
+*/
+
+.week-filter input.week, .week-filter input.year { width: 96px !important; }

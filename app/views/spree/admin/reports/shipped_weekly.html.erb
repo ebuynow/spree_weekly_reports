@@ -21,14 +21,16 @@
       <th><%= Spree.t(:sku) %></th>
       <th><%= Spree.t(:name) %></th>
       <th><%= Spree.t(:amount) %></th>
+      <th><%= Spree.t(:order_numbers, scope: :weekly_reports) %></th>
     </tr>
   </thead>
   <tbody>
-    <% @totals.each do |id, data| %>
+    <% @totals.sort_by { |id, data| data[:sku] } .each do |id, data| %>
       <tr>
         <td><%= data[:sku] %></td>
         <td><%= data[:name] %></td>
         <td><%= data[:amount] %></td>
+        <td><%= data[:order_numbers].join(', ') %></td>
       </tr>
     <% end %>
   </tbody>

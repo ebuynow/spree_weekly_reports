@@ -6,3 +6,4 @@ en:
     weekly_reports:
       shipped_weekly: Shipped weekly
       shipped_weekly_description: Product shipped per week
+      order_numbers: Order numbers

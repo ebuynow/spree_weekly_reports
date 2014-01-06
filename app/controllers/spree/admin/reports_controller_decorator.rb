@@ -42,4 +42,4 @@ Spree::Admin::ReportsController.class_eval do
   end
 end
 
-Spree::Admin::ReportsController::AVAILABLE_REPORTS[:shipped_weekly] = { name: Spree.t(:shipped_weekly, scope: :weekly_reports), description: Spree.t(:shipped_weekly_description, scope: :weekly_reports) }
+Spree::Admin::ReportsController.add_available_report!(:shipped_weekly)
